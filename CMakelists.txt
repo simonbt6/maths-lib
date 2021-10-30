@@ -7,9 +7,6 @@ set (SOURCE
     "mat4.cpp"
 )
 
-set (includes "../../includes")
-set (libs "../../libs")
-
 add_library(rtmp_maths ${SOURCE})
 
-target_include_directories(rtmp_maths PUBLIC ../ ${includes} ${includes}/ffmpeg ${libs}/glfw/include/ ${libs}/glfw/deps)
+target_include_directories(rtmp_maths PUBLIC ../)
