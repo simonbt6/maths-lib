@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 
-project (rtmp_maths)
+project (maths_lib)
 
 set (SOURCE
     "vec4.cpp"
     "mat4.cpp"
 )
 
-add_library(rtmp_maths ${SOURCE})
+add_library(maths_lib ${SOURCE})
 
-target_include_directories(rtmp_maths PUBLIC ../)
+target_include_directories(maths_lib PUBLIC ../)
