@@ -280,16 +280,14 @@ namespace Maths
     mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far)
     {
         mat4 result(1.0f);
+        
+        result.m_Elements[0 + (0 * 4)] =  2.0f / (right - left);
+		result.m_Elements[1 + (1 * 4)] =  2.0f / (top - bottom);
+		result.m_Elements[2 + (2 * 4)] =  1.0f / (far - near  );
 
-        result.m_Elements[0 + 0 * 4] = 2.0f / (right - left  );
-        
-        result.m_Elements[0 + 1 * 4] = 2.0f / (top   - bottom);
-        
-        result.m_Elements[0 + 2 * 4] = 2.0f / (near  - far   );
-        
-        result.m_Elements[0 + 0 * 4] = (right  + left) / (left   - right);
-        result.m_Elements[0 + 1 * 4] = (bottom + top ) / (bottom - top  );
-        result.m_Elements[0 + 2 * 4] = (far    + near) / (far    - near );
+		result.m_Elements[0 + (3 * 4)] = - (right + left) / (right - left);
+		result.m_Elements[1 + (3 * 4)] = - (top + bottom) / (top - bottom);
+		result.m_Elements[2 + (3 * 4)] = -  near / (far - near);
 
         return result;
     }
